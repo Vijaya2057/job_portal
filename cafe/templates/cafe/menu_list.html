@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        .menu-item {
+            border: 1px solid #000;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .menu-item p {
+            font-weight: bold;
+        }
+        .menu-item a {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    {% comment %} <a href="{% url 'cafe:menucreate' %}" >Add new item </a> {% endcomment %}
+    {% for m in menu %}
+        {% comment %}   //yo menu views bata aako ho  {% endcomment %}
+        <div class="menu-item">
+            <p>Name: {{ m.name }}</p>
+            <p>Price: {{ m.price }}</p>
+            <a href="{% url 'cafe:orderadd' %}">Add Order</a>
+        </div>
+    {% endfor %}
+</body>
+</html>
