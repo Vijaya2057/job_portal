@@ -1,17 +1,41 @@
 {% load static %}
 <html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    </head>
-
-
-        {% block content %}
-
-        <a href="{% url 'cafe:indexofmenu' %}" class="btn btn-outline-danger my-3">Menu</a>   <br>  
-        <a href="{% url 'cafe:indexofingredients' %}" class="btn btn-outline-danger my-3">Ingredients</a> <br>                
-        {% comment %} <a href="{% url 'cafe:indexofrecipe' %}" class="btn btn-outline-danger my-3">Recipe</a>  <br>                {% endcomment %}
-        <a href="{% url 'cafe:indexoforder' %}" class="btn btn-outline-danger my-3">All Orders</a>     <br>
-        <a href="{% url 'cafe:indexoforder' %}" class="btn btn-outline-danger my-3">Total sales of Items today</a>  <br>             
-        <a href="{% url 'cafe:indexofrecipe' %}" class="btn btn-outline-danger my-3">Recipe</a> 
-        {% endblock %}
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS styles */
+        .btn-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .btn-custom {
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+        .btn-custom:hover {
+            background-color: white;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <div class="btn-container">
+        <a href="{% url 'cafe:indexofmenu' %}" class="btn btn-custom">Menu</a>
+        <a href="{% url 'cafe:indexofingredients' %}" class="btn btn-custom">Ingredients</a>
+        <a href="{% url 'cafe:indexoforder' %}" class="btn btn-custom">All Orders</a>
+        <a href="{% url 'cafe:indexoforder' %}" class="btn btn-custom">Total Sales of Items Today</a>
+        <a href="{% url 'cafe:indexofrecipe' %}" class="btn btn-custom">Recipe</a>
+    </div>
+    {% endblock %}
+</body>
+</html>
